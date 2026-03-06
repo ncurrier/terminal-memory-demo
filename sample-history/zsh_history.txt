@@ -1,0 +1,20 @@
+: 1710000000:0;git status
+: 1710000022:0;docker compose up -d
+: 1710000054:0;docker ps
+: 1710000071:0;lsof -i :3000
+: 1710000090:0;kill -9 24541
+: 1710000125:0;docker compose down
+: 1710000150:0;docker compose up -d --build
+: 1710000200:0;pnpm dev
+: 1710000350:0;tail -f /var/log/system.log
+: 1710005000:0;kubectl get pods -n payments
+: 1710005052:0;kubectl logs deploy/payments-api -n payments
+: 1710005100:0;psql -h localhost -U app -d billing
+: 1710008000:0;docker ps --format '{{.Names}} {{.Ports}}'
+: 1710008040:0;docker stop local-postgres
+: 1710008088:0;docker rm local-postgres
+: 1710008124:0;docker run --name local-postgres -p 5432:5432 -e POSTGRES_PASSWORD=dev -d postgres:16
+: 1710008162:0;docker logs local-postgres
+: 1710008205:0;pnpm test:unit
+: 1710010000:0;git checkout -b fix/payment-timeout
+: 1710010100:0;git commit -m "fix: tighten retry backoff"
