@@ -32,3 +32,10 @@ For query `how did i fix that docker port conflict` top matches should include c
 - `docker run ... -p 5432:5432 ...`
 
 This demonstrates memory by problem, not literal command recall.
+
+
+## Test
+
+```bash
+./scripts/test.sh
+```
