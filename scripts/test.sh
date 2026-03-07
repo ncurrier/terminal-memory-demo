@@ -24,4 +24,10 @@ assert_contains "lsof -i :3000"
 assert_contains "docker compose down"
 assert_contains "docker stop local-postgres"
 
+first_result="$(awk '/^ 1\. score=/{print; exit}' "$OUTPUT_FILE")"
+if [[ "$first_result" != *"seq=6 session=1"* ]]; then
+  echo "[terminal-memory-demo:test] unexpected top result line: $first_result" >&2
+  exit 1
+fi
+
 echo "[terminal-memory-demo:test] pass"
